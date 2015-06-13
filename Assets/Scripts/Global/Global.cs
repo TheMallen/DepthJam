@@ -9,6 +9,8 @@ public class Global : Singleton<Global>
 	private static readonly Vector2 c_DefaultTestPlayerPosition = new Vector2(32f,32f);
 	private static readonly string  c_DefaultTestLevel = "Test";
 
+	public const float c_DefaultBulletSpeed = 250f;
+
 	//*************
 	// Data members
 	//*************

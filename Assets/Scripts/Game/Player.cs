@@ -7,6 +7,7 @@ public class Player : Character
 	//
 	//
 	static private float c_DefaultMovementSpeed = 0.1f;
+	static private float c_ReticleUnitCircleRadius = 0.8f;
 
 	private const string c_LeftStickHorizontal  = "P1_LeftStick_Horizontal" ;
 	private const string c_LeftStickVertical    = "P1_LeftStick_Vertical"   ;
@@ -19,6 +20,7 @@ public class Player : Character
 	//
 	//
 	private Transform m_Reticle = null;
+
 
 	//
 	//
@@ -93,6 +95,10 @@ public class Player : Character
 			{
 				projectile.transform.position = m_Reticle.position;
 
+				Vector2 dir = (m_Reticle.position - transform.position).normalized;
+
+				projectile.a_Rigidbody2D.AddForce(dir*Global.c_DefaultBulletSpeed,ForceMode2D.Force);
+
 			}
 
 		}
@@ -101,7 +107,9 @@ public class Player : Character
 
 	private void handleReticle()
 	{
-		m_Reticle.localPosition = new Vector2(Input.GetAxis(c_RightStickHorizontal),Input.GetAxis(c_RightStickVertical));
+		//Vector2 pos = new Vector2(Mathf.Ceil(Input.GetAxis(c_RightStickHorizontal)),Mathf.Ceil(Input.GetAxis(c_RightStickVertical)));
+
+		m_Reticle.localPosition = new Vector2(Input.GetAxis(c_RightStickHorizontal),Input.GetAxis(c_RightStickVertical)).normalized * c_ReticleUnitCircleRadius;
 
 		if (Vector3.Distance(m_Reticle.transform.position,transform.position) < 0.5f)
 			m_Reticle.gameObject.SetActive(false);
