@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Rigidbody2D))]
 abstract public class Character : BaseObject
 {
 	//
@@ -17,7 +18,7 @@ abstract public class Character : BaseObject
 	//
 	//
 	//
-
+	private Rigidbody2D m_Rigidbody2D = null;
 
 	//
 	//
@@ -25,6 +26,8 @@ abstract public class Character : BaseObject
 	protected override void Awake()
 	{
 		base.Awake();
+
+		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
 	}
 
@@ -47,8 +50,9 @@ abstract public class Character : BaseObject
 	{
 		m_Delta = m_Delta.normalized * m_MoveSpeed;
 		{
-			transform.Translate(m_Delta,Space.World);
-		
+			//transform.Translate(m_Delta,Space.World);
+			m_Rigidbody2D.AddForce(m_Delta,ForceMode2D.Impulse);
+
 		}
 
 		m_Delta = Vector2.zero;
