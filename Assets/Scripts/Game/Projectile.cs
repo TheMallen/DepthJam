@@ -26,7 +26,7 @@ public class Projectile : BaseObject, PoolableTypeInterface
 
 	private void spinGraphic()
 	{
-		m_Graphic.transform.Rotate(Vector3.forward*Time.deltaTime*100f);
+		//m_Graphic.transform.Rotate(Vector3.forward*Time.deltaTime*100f);
 
 	}
 
@@ -35,6 +35,14 @@ public class Projectile : BaseObject, PoolableTypeInterface
 		if (coll.gameObject != null)
 		{
 			gameObject.SetActive(false);
+
+			HitParticle hitparticle = null;
+
+			if (Game.a_Instance.a_CHitParticlePool.checkOutAnItem(out hitparticle) != false)
+			{
+				hitparticle.transform.position = transform.position;
+
+			}
 
 		}
 		

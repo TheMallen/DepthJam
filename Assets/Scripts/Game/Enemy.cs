@@ -13,16 +13,6 @@ public class Enemy : Character
 		base.Start();
 	}
 
-	protected void OnCollisionEnter2D(Collision2D collision) {
-		if (collision.collider.gameObject.GetComponent<Player> () != null)
-			OnHitPlayer ();
-
-	}
-
-	protected virtual void OnHitPlayer() {
-	
-	}
-
 	protected Player NearestPlayer() {
 		Player closestPlayer = m_Players[0];
 		if (m_Players.Count == 1) 
@@ -37,6 +27,31 @@ public class Enemy : Character
 			}
 		}
 		return closestPlayer;
+	}
+
+	private void OnCollisionEnter2D(Collision2D coll) 
+	{
+		if (coll.gameObject != null)
+		{
+			if (coll.gameObject.GetComponent<Projectile>() != null)
+			{
+				Vector2 force = (coll.transform.position - transform.position).normalized*100f;
+				
+				m_Rigidbody2D.AddForce(force,ForceMode2D.Impulse);
+
+
+			}
+
+			if (coll.collider.gameObject.GetComponent<Player> () != null)
+				OnHitPlayer ();
+
+		}
+		
+	}
+
+	private void OnHitPlayer()
+	{
+
 	}
 
 }
