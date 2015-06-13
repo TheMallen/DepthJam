@@ -17,7 +17,7 @@ public class Enemy : Character
 		Player closestPlayer = m_Players[0];
 		if (m_Players.Count == 1) 
 			return closestPlayer;
-		float lowestDistance = 0f;
+		float lowestDistance = Mathf.Infinity;
 
 		foreach (Player player in m_Players) {
 			var distance = Vector2.Distance(player.transform.position, transform.position);
@@ -27,6 +27,10 @@ public class Enemy : Character
 			}
 		}
 		return closestPlayer;
+	}
+
+	protected Vector2 TowardsPlayer() {
+		return (NearestPlayer().transform.position - transform.position);
 	}
 
 	private void OnCollisionEnter2D(Collision2D coll) 

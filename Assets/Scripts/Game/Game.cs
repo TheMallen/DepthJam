@@ -51,4 +51,19 @@ public class Game : SceneManager <Game>
 		
 	}
 
+	public static bool isInLayer(GameObject obj, string name) 
+	{
+		return (obj.layer == LayerMask.NameToLayer (name));
+	}
+
+	public static bool isInLayer(Collider2D col, string name) 
+	{
+		return (col.gameObject.layer == LayerMask.NameToLayer (name));
+	}
+
+	public static bool isInLayer(Collider col, string name) 
+	{
+		return (col.gameObject.layer == LayerMask.NameToLayer (name));
+	}
+
 }
