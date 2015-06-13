@@ -51,6 +51,10 @@
      <Compile Include="Assets\Scripts\Global\SceneManager.cs" />
      <Compile Include="Assets\Scripts\Global\Singleton.cs" />
      <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
+     <Compile Include="Assets\Shaders\Game\BaseObject.cs" />
+     <Compile Include="Assets\Shaders\Game\Character.cs" />
+     <Compile Include="Assets\Shaders\Game\Enemy.cs" />
+     <Compile Include="Assets\Shaders\Game\Player.cs" />
      <None Include="Assets\Shaders\Global\Scroll.shader" />
      <None Include="Assets\Shaders\Global\FillText.shader" />
      <None Include="Assets\Shaders\Global\PlainText.shader" />
