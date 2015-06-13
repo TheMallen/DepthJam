@@ -23,23 +23,13 @@ public class RandomWalkEnemy : Enemy {
 
 	void OnCollisionEnter2D(Collision2D collision) 
 	{
-
-		if (m_DebounceCounter == 0) {
-			ChangeDirectionRandomly ();
-			m_DebounceCounter = 1000;
-			Debug.Log ("Set counter to:" + m_DebounceCounter);
-		} else {
-			Debug.Log ("Subtracting");
-			m_DebounceCounter-=1;
-		}
-
+		ChangeDirectionRandomly ();
 	}
 	
 	protected override void Update ()
 	{
 		base.Update ();
 		Forward ();
-
 	}
 
 	protected void Forward() {
