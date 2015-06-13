@@ -6,7 +6,12 @@ abstract public class BaseObject : MonoBehaviour
 	//
 	//
 	//
+	private static string c_GraphicName =  "Graphic";
 
+	//
+	//
+	//
+	private MeshRenderer m_Graphic = null;
 
 	//
 	//
@@ -18,7 +23,7 @@ abstract public class BaseObject : MonoBehaviour
 	//
 	protected virtual void Awake()
 	{
-
+		m_Graphic = transform.FindChild("Graphic").GetComponent<MeshRenderer>();
 
 	}
 

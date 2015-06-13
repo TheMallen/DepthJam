@@ -85,7 +85,17 @@ public class Player : Character
 
 	private void handleShootingControls()
 	{
+		if (Vector3.Distance(m_Reticle.transform.position,transform.position) >= 0.5f)
+		{
+			Projectile projectile = null;
 
+			if (Game.a_Instance.a_ProjectilePool.checkOutAnItem(out projectile))
+			{
+				projectile.transform.position = m_Reticle.position;
+
+			}
+
+		}
 
 	}
 
