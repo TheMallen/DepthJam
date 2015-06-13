@@ -50,8 +50,10 @@
      <Compile Include="Assets\Scripts\Game\Character.cs" />
      <Compile Include="Assets\Scripts\Game\Enemy.cs" />
      <Compile Include="Assets\Scripts\Game\Game.cs" />
+     <Compile Include="Assets\Scripts\Game\GoesAtYouEnemy.cs" />
      <Compile Include="Assets\Scripts\Game\Player.cs" />
      <Compile Include="Assets\Scripts\Game\RandomWalkEnemy.cs" />
+     <Compile Include="Assets\Scripts\Game\SpiralEnemy.cs" />
      <Compile Include="Assets\Scripts\Global\Debounce.cs" />
      <Compile Include="Assets\Scripts\Global\Global.cs" />
      <Compile Include="Assets\Scripts\Global\SceneManager.cs" />

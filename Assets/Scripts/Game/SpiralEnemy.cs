@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RandomWalkEnemy : Enemy {
+public class SpiralEnemy : Enemy {
 	
 	const float DEFAULT_SPEED = 0.05f;
-
-	enum Directions {LEFT=0, RIGHT=1, DOWN=2, UP=3};
-
-	private Vector2 m_Facing = Vector2.zero;
-
+	
+	private int m_Facing = 1;
+	
 	private int m_DebounceCounter = 0;
+
 
 	// Use this for initialization
 	protected override void Start () 
@@ -20,14 +19,14 @@ public class RandomWalkEnemy : Enemy {
 		Random.seed = (int)System.DateTime.Now.Ticks;
 		StartCoroutine (coro());
 	}
-
+	
 	public IEnumerator coro()
 	{
 		yield return new WaitForSeconds(3);
 		ChangeDirectionRandomly ();
 		StartCoroutine (coro());
 	}
-
+	
 	void OnCollisionStay2D(Collision2D collision) 
 	{
 		ChangeDirectionRandomly ();
@@ -35,34 +34,25 @@ public class RandomWalkEnemy : Enemy {
 	
 	protected override void Update ()
 	{
+		/**
 		base.Update ();
-		Forward ();
-	}
+		Player targetPlayer = NearestPlayer ();
+		Vector2 towardsPlayer = transform.position - targetPlayer.transform.position;
 
-	protected void Forward() {
+		float step = m_MoveSpeed * Time.deltaTime;
+		transform.position = Vector2.MoveTowards(
+			transform.position,
+			targetPlayer.transform.position,
+			step
+			);
+
 		m_Delta = m_Facing;
+		*/
 	}
 
 	protected void ChangeDirectionRandomly() 
 	{
-		m_Facing = RandomDirection ();
+		m_Facing = (m_Facing == 1) ? -1 : 1;
 	}
-
-	protected Vector2 RandomDirection() 
-	{
-		var r = Random.Range (0, 3);
-		switch (r) {
-			case (int)Directions.LEFT:
-				return new Vector2(-1, 0);
-			case (int)Directions.RIGHT:
-				return new Vector2(1, 0);
-			case (int)Directions.DOWN:
-				return new Vector2(0, 1);
-			case (int)Directions.UP:
-				return new Vector2(0, -1);
-		}
-		return Vector2.zero;
-
-	}
-
+	
 }

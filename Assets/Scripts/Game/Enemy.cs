@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class Enemy : Character 
 {
-	private List<Player> m_Players;
+	[SerializeField]
+	protected List<Player> m_Players;
 
 	protected override void Start()
 	{
@@ -20,6 +21,22 @@ public class Enemy : Character
 
 	protected virtual void OnHitPlayer() {
 	
+	}
+
+	protected Player NearestPlayer() {
+		Player closestPlayer = m_Players[0];
+		if (m_Players.Count == 1) 
+			return closestPlayer;
+		float lowestDistance = 0f;
+
+		foreach (Player player in m_Players) {
+			var distance = Vector2.Distance(player.transform.position, transform.position);
+			if (distance < lowestDistance) {
+				lowestDistance = distance;
+				closestPlayer = player;
+			}
+		}
+		return closestPlayer;
 	}
 
 }

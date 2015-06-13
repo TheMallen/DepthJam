@@ -1,15 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\RandomWalkEnemy.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game\Game.cs" Line="34" Column="22" />
+      <File FileName="Assets\Scripts\Game\Game.cs" Line="25" Column="3" />
       <File FileName="Assets\Scripts\Global\Global.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Global\SceneManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Game\RandomWalkEnemy.cs" Line="42" Column="3" />
-      <File FileName="Assets\Scripts\Game\Enemy.cs" Line="23" Column="3" />
-      <File FileName="Assets\Scripts\Game\Character.cs" Line="46" Column="28" />
-      <File FileName="Assets\Scripts\Global\Debounce.cs" Line="17" Column="3" />
+      <File FileName="Assets\Scripts\Global\SceneManager.cs" Line="21" Column="2" />
+      <File FileName="Assets\Scripts\Game\RandomWalkEnemy.cs" Line="14" Column="32" />
+      <File FileName="Assets\Scripts\Game\Enemy.cs" Line="27" Column="23" />
+      <File FileName="Assets\Scripts\Game\Character.cs" Line="18" Column="4" />
       <File FileName="Assets\Scripts\Global\Singleton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game\GoesAtYouEnemy.cs" Line="20" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
